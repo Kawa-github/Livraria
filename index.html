@@ -283,7 +283,7 @@
   }
 </style>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="imgs/pilha-de-livros_24px.png" alt="" class="d-inline-block align-text-top">
@@ -313,9 +313,9 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
+        <form class="d-flex" name="frmBusca">
           <input class="form-control me-2" type="search" placeholder="Busque seu livro favorito" size="21"
-            aria-label="Search">
+            aria-label="Search" name="filtro">
           <button class="btn btn-secondary" type="submit">Procurar</button>
         </form>
       </div>
@@ -323,7 +323,8 @@
   </nav>
 </header>
 
-<body>
+<body class="mt-5 pt-2">
+
   <div class="box">
     <div id="txtInicio">
       <h3>Seja bem-vindo a Livraria Mooca</h3>
@@ -440,11 +441,48 @@
               <img src="imgs/livro-hp-camara.jpg" class="card-img-top" alt="...">
             </a>
             <div class="card-body">
-              <h5 class="card-title">Harry Potter e a Câmara Secreta</h5>
+              <h5 class="card-title">Harry Potter e a Ordem da Fênix</h5>
               <p class="card-text cardTitulo">This is a longer card with supporting text below as a natural lead-in to additional
                 content.</p>
             </div>
           </div>
+          <div class="card card-custom">
+            <a href="" class="hvr-bob">
+              <img src="imgs/it_acoisa_red.jpg" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">It a coisa</h5>
+              <p class="card-text cardTitulo">Durante as férias de 1958, em uma pacata cidadezinha chamada Derry, um grupo de sete amigos começa a ver coisas estranhas. Um conta que viu um palhaço, outro que viu uma múmia.</p>
+            </div>
+          </div>
+          <div class="card card-custom">
+            <a href="" class="hvr-bob">
+              <img src="imgs/o-iluminado-red.jpg" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">It a coisa</h5>
+              <p class="card-text cardTitulo">Durante as férias de 1958, em uma pacata cidadezinha chamada Derry, um grupo de sete amigos começa a ver coisas estranhas. Um conta que viu um palhaço, outro que viu uma múmia.</p>
+            </div>
+          </div>
+          <div class="card card-custom">
+            <a href="" class="hvr-bob">
+              <img src="imgs/hobbit-red.jpg" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">It a coisa</h5>
+              <p class="card-text cardTitulo">Durante as férias de 1958, em uma pacata cidadezinha chamada Derry, um grupo de sete amigos começa a ver coisas estranhas. Um conta que viu um palhaço, outro que viu uma múmia.</p>
+            </div>
+          </div>
+          <div class="card card-custom">
+            <a href="" class="hvr-bob">
+              <img src="imgs/peterpan-red.jpg" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">It a coisa</h5>
+              <p class="card-text cardTitulo">Durante as férias de 1958, em uma pacata cidadezinha chamada Derry, um grupo de sete amigos começa a ver coisas estranhas. Um conta que viu um palhaço, outro que viu uma múmia.</p>
+            </div>
+          </div>
+          
       </div>
     </div>
 </body>
@@ -491,6 +529,27 @@
     interval: 2000,
     wrap: false
   })
+
+  let frmBusca = document.querySelector("[name=frmBusca]")
+  frmBusca.addEventListener("submit",function(e){
+      e.preventDefault()
+      let filtro = document.querySelector("[name=filtro]")
+      filtrarLivros(filtro.value)
+  })
+
+  function filtrarLivros(texto) {
+    busca = document.querySelectorAll(`.cardLivros .card-custom`)
+     Array.from(busca).map(function(e){
+
+       filtroAcento = removerAcentos(e.querySelector(".card-title").innerText)
+        if(filtroAcento.toLowerCase().includes(texto.toLowerCase())) return e.classList.remove("d-none") 
+        return e.classList.add("d-none") 
+     })     
+  }
+
+  function removerAcentos(acento){
+    return acento.normalize("NFD").replace(/[^a-zA-Zs]/g, "");
+  }
 </script>
 
 </html>
