@@ -68,25 +68,25 @@
     /* padding-left: 20px; */
     /* width: 150px; */
   }
-  
+
   .card {
     width: 270px;
   }
-  
-  
+
+
   .card-custom{
     height: 395px;
   }
-  
+
   .cardTitulo{
     height: 40%;
     overflow-y: auto;
   }
-  
+
   .styleCards {
     display: flex;
     /* justify-content: center; */
-    flex-wrap:wrap;   
+    flex-wrap:wrap;
     gap: 20px;
     justify-content: space-evenly;
   }
@@ -136,7 +136,7 @@
   }
   .card-400{
     min-width: 300px!important;
-    
+
   }
   .txtLocal {
     /* float: right; */
@@ -392,7 +392,7 @@
                   <p>R$49,99</p> -->
             </div>
           </div>
-        
+
           <div class="card card-custom">
             <a href="#" class="hvr-bob">
               <img src="imgs/livro-hp-filosofal.jpg" class="card-img-top" alt="...">
@@ -443,6 +443,11 @@
                 content.</p>
             </div>
           </div>
+          <div class="">
+              <img src="" alt=""> <!--saiioajdaijddiadjijsidjaisjdajdi--> 
+          </div>
+
+
           <div class="card card-custom">
             <a href="" class="hvr-bob">
               <img src="imgs/it_acoisa_red.jpg" class="card-img-top" alt="...">
@@ -479,11 +484,11 @@
             </a>
             <div class="card-body">
               <h5 class="card-title">Peter Pan</h5>
-              <p class="card-text cardTitulo">Um dos mais populares clássicos infantis, Peter Pan é uma história que, como Alice no País das Maravilhas, une gerações, contagiando 
+              <p class="card-text cardTitulo">Um dos mais populares clássicos infantis, Peter Pan é uma história que, como Alice no País das Maravilhas, une gerações, contagiando
                 também adultos com sua energia, imaginação e um enredo que permite diversos níveis de interpretação.</p>
             </div>
           </div>
-          
+
       </div>
     </div>
 </body>
@@ -543,9 +548,9 @@
      Array.from(busca).map(function(e){
 
        filtroAcento = removerAcentos(e.querySelector(".card-title").innerText)
-        if(filtroAcento.toLowerCase().includes(texto.toLowerCase())) return e.classList.remove("d-none") 
-        return e.classList.add("d-none") 
-     })     
+        if(filtroAcento.toLowerCase().includes(texto.toLowerCase())) return e.classList.remove("d-none")
+        return e.classList.add("d-none")
+     })
   }
 
   function removerAcentos(acento){
