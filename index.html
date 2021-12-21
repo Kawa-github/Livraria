@@ -91,6 +91,72 @@
     justify-content: space-evenly;
   }
 
+
+    /* Bob */
+  @-webkit-keyframes hvr-bob {
+    0% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    50% {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+    }
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes hvr-bob {
+    0% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+    50% {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+    }
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  @-webkit-keyframes hvr-bob-float {
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  @keyframes hvr-bob-float {
+    100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+    }
+  }
+  .hvr-bob {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
+  .hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
+    -webkit-animation-name: hvr-bob-float, hvr-bob;
+    animation-name: hvr-bob-float, hvr-bob;
+    -webkit-animation-duration: .3s, 1.5s;
+    animation-duration: .3s, 1.5s;
+    -webkit-animation-delay: 0s, .3s;
+    animation-delay: 0s, .3s;
+    -webkit-animation-timing-function: ease-out, ease-in-out;
+    animation-timing-function: ease-out, ease-in-out;
+    -webkit-animation-iteration-count: 1, infinite;
+    animation-iteration-count: 1, infinite;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-direction: normal, alternate;
+    animation-direction: normal, alternate;
+  }
+
   .col {
     width: 300px;
     /* background-color: red; */
@@ -156,81 +222,7 @@
     border: 1px solid #000;
   }
 
-  @-webkit-keyframes hvr-bob {
-    0% {
-      -webkit-transform: translateY(-8px);
-      transform: translateY(-8px);
-    }
-
-    50% {
-      -webkit-transform: translateY(-4px);
-      transform: translateY(-4px);
-    }
-
-    100% {
-      -webkit-transform: translateY(-8px);
-      transform: translateY(-8px);
-    }
-  }
-
-  @keyframes hvr-bob {
-    0% {
-      -webkit-transform: translateY(-8px);
-      transform: translateY(-8px);
-    }
-
-    50% {
-      -webkit-transform: translateY(-4px);
-      transform: translateY(-4px);
-    }
-
-    100% {
-      -webkit-transform: translateY(-8px);
-      transform: translateY(-8px);
-    }
-  }
-
-  @-webkit-keyframes hvr-bob-float {
-    100% {
-      -webkit-transform: translateY(-8px);
-      transform: translateY(-8px);
-    }
-  }
-
-  @keyframes hvr-bob-float {
-    100% {
-      -webkit-transform: translateY(-8px);
-      transform: translateY(-8px);
-    }
-  }
-
-  .hvr-bob {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  }
-
-  .hvr-bob:focus,
-  .hvr-bob:active {
-    -webkit-animation-name: hvr-bob-float, hvr-bob;
-    animation-name: hvr-bob-float, hvr-bob;
-    -webkit-animation-duration: .3s, 1.5s;
-    animation-duration: .3s, 1.5s;
-    -webkit-animation-delay: 0s, .3s;
-    animation-delay: 0s, .3s;
-    -webkit-animation-timing-function: ease-out, ease-in-out;
-    animation-timing-function: ease-out, ease-in-out;
-    -webkit-animation-iteration-count: 1, infinite;
-    animation-iteration-count: 1, infinite;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-    -webkit-animation-direction: normal, alternate;
-    animation-direction: normal, alternate;
-  }
-
-
+  
   .divRede {
     /* margin-top: 50px; */
     gap: 5px;
@@ -259,8 +251,8 @@
   .fa i {
     width: 17px!important;
   }
-    opacity: 0.7;
-  }
+  
+  i:hover{opacity: 0.7;}
 
   .fa-facebook {
     background: #3B5998;
@@ -276,6 +268,8 @@
     background: #dd4b39;
     color: white;
   }
+
+
 </style>
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -294,7 +288,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Livros</a>
+            <a class="nav-link" href="#" onclick="mostrar('todos')">Livros</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -302,9 +296,9 @@
               Gênero
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Ficção</a></li>
-              <li><a class="dropdown-item" href="#">Aventura</a></li>
-              <li><a class="dropdown-item" href="#">Comédia</a></li>
+              <li><a class="dropdown-item" href="#" onclick="mostrar('ficcao')" >Ficção</a></li>
+              <li><a class="dropdown-item" href="#" onclick="mostrar('aventura')">Aventura</a></li>
+              <li><a class="dropdown-item" href="#" onclick="mostrar('suspense')">Suspense</a></li>
             </ul>
           </li>
         </ul>
@@ -343,9 +337,7 @@
               <div class="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
-                <a href="#btn-conheca">
                   <button type="button" class="btn btn-dark btn-livro">CONHEÇA</button>
-                </a>
               </div>
             </div>
             <div class="carousel-item">
@@ -380,7 +372,7 @@
     </div>
     <div class="cardLivros">
       <div class="styleCards">
-          <div class="card card-custom">
+          <div class="card card-custom card-ficcao">
             <a href="#" class="hvr-bob">
               <img src="imgs/livro-hp-red.jpg" class="card-img-top" alt="...">
             </a>
@@ -393,8 +385,8 @@
             </div>
           </div>
 
-          <div class="card card-custom">
-            <a href="#" class="hvr-bob img-custom">
+          <div class="card card-custom card-ficcao">
+            <a href="#" class="hvr-bob">
               <img src="imgs/livro-hp-filosofal.jpg" class="card-img-top" alt="...">
             </a>
             <div class="card-body">
@@ -404,7 +396,7 @@
                 content. This content is a little bit longer.</p>
             </div>
           </div>
-          <div class="card card-custom">
+          <div class="card card-custom card-ficcao">
             <a href="" class="hvr-bob">
               <img src="imgs/livro-hp-camara.jpg" class="card-img-top" alt="...">
             </a>
@@ -414,7 +406,7 @@
                 content.</p>
             </div>
           </div>
-          <div class="card card-custom">
+          <div class="card card-custom card-ficcao">
             <a href="" class="hvr-bob">
               <img src="imgs/livro-hp-camara.jpg" class="card-img-top" alt="...">
             </a>
@@ -424,7 +416,7 @@
                 content.</p>
             </div>
           </div>
-          <div class="card card-custom">
+          <div class="card card-custom card-ficcao">
             <a href="" class="hvr-bob">
               <img src="imgs/livro-hp-camara.jpg" class="card-img-top" alt="...">
             </a>
@@ -434,7 +426,7 @@
                 content.</p>
             </div>
           </div>
-          <div class="card card-custom">
+          <div class="card card-custom card-ficcao">
             <a href="" class="hvr-bob">
               <img src="imgs/livro-hp-camara.jpg" class="card-img-top" alt="...">
             </a>
@@ -449,7 +441,7 @@
           </div>
 
 
-          <div class="card card-custom">
+          <div class="card card-custom card-suspense">
             <a href="" class="hvr-bob">
               <img src="imgs/it_acoisa_red.jpg" class="card-img-top" alt="...">
             </a>
@@ -459,7 +451,7 @@
                  Um conta que viu um palhaço, outro que viu uma múmia.</p>
             </div>
           </div>
-          <div class="card card-custom">
+          <div class="card card-custom card-suspense">
             <a href="" class="hvr-bob">
               <img src="imgs/o-iluminado-red.jpg" class="card-img-top" alt="...">
             </a>
@@ -469,7 +461,7 @@
                  A luta assustadora entre dois mundos. Um menino e o desejo assassino de poderosas forças malignas. </p>
             </div>
           </div>
-          <div class="card card-custom">
+          <div class="card card-custom card-aventura">
             <a href="" class="hvr-bob">
               <img src="imgs/hobbit-red.jpg" class="card-img-top" alt="...">
             </a>
@@ -479,7 +471,7 @@
                  A partir de então, toda sua vida pacata e campestre soprando anéis de fumaça com seu belo cachimbo começa a mudar.</p>
             </div>
           </div>
-          <div class="card card-custom">
+          <div class="card card-custom card-aventura">
             <a href="" class="hvr-bob">
               <img src="imgs/peterpan-red.jpg" class="card-img-top" alt="...">
             </a>
@@ -533,20 +525,22 @@
 <script>
 
 
+
   var myCarousel = document.querySelector('#carouselExampleSlidesOnly')
   var carousel = new bootstrap.Carousel(myCarousel, {
     interval: 2000,
     wrap: false
   })
 
-  
+
+
 
   // function selecionarLivro(){
-    let btnLivro = document.querySelector('.btn-livro')
-    let selectLivro = document.querySelector('.img-custom')
-    btnLivro.addEventListener("click",function(e){
-      selectLivro.classList.add("bg-danger")
-    })
+    // let btnLivro = document.querySelector('.btn-livro')
+    // let selectLivro = document.querySelector('.img-custom')
+    // btnLivro.addEventListener("click",function(e){
+    //   selectLivro.classList.add("bg-primary")
+    // })
   // }
 
   // selecionarLivro()
@@ -569,6 +563,18 @@
 
   function removerAcentos(acento){
     return acento.normalize("NFD").replace(/[^a-zA-Zs]/g, "");
+  }
+
+  function mostrar(categoria){
+    elementos = document.querySelectorAll('.card-custom')
+    elementosArray = Array.from(elementos)
+    elementosArray.map(function(elemento){
+      if(categoria == "todos") return elemento.classList.remove('d-none')
+      if(elemento.classList.contains(`card-${categoria}`)) elemento.classList.remove('d-none')
+      else elemento.classList.add('d-none')
+    })
+  
+  
   }
 </script>
 
