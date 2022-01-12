@@ -36,7 +36,7 @@
 
 
   .card-custom {
-    height: 395px;
+    height: 480px;
   }
 
   .cardTitulo {
@@ -177,8 +177,9 @@
   .btn-comprar{
     width: 200px;
   }
-
+  
   .customComprar{
+    z-index: 100;
     right: 0;
   }
   .card-400 {min-width: 300px !important;}

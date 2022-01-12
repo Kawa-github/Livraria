@@ -135,8 +135,7 @@
               <p class="card-text cardTitulo">O terceiro ano de Harry Potter em Hogwarts começa mal quando ele descobre
                 que o
                 assassino Sirius Black escapou da prisão de Azkaban e está empenhado em matá-lo.</p>
-              <!-- <p class="card-text" style="text-decoration: line-through;">R$59,99</p>
-                    <p>R$49,99</p> -->
+              <p class="card-text">R$59,99</p>
             </div>
           </div>
   
@@ -149,6 +148,7 @@
               <h5 class="card-title">Harry Potter e a Pedra Filosofal</h5>
               <p class="card-text cardTitulo">Harry Potter é um garoto cujos pais, feiticeiros, foram assassinados por um poderosíssimo bruxo quando ele ainda era um bebê.
                  Ele foi levado, então, para a casa dos tios que nada tinham a ver com o sobrenatural.</p>
+                 <p class="card-text">R$59,99</p>
             </div>
           </div>
           <div class="card card-custom card-ficcao">
@@ -160,7 +160,8 @@
               <h5 class="card-title">Harry Potter e a Câmara Secreta</h5>
               <p class="card-text cardTitulo">Depois de férias aborrecidas na casa dos tios trouxas, 
                 está na hora de Harry Potter voltar a estudar. Coisas acontecem, no entanto, para dificultar o regresso de Harry.</p>
-            </div>
+                <p class="card-text">R$59,99</p>
+              </div>
           </div>
           <div class="card card-custom card-ficcao">
             <input type="checkbox" class="form-check-input chkLivro">
@@ -171,7 +172,8 @@
               <h5 class="card-title">Harry Potter e o Cálice de Fogo</h5>
               <p class="card-text cardTitulo">Nesta aventura, o feiticeiro cresceu e está com 14 anos. O início do ano letivo de Harry Potter reserva muitas emoções, mágicas,
                  e acontecimentos inesperados, além de um novo torneio em que os alunos de Hogwarts terão de demonstrar todas as habilidade mágicas.</p>
-            </div>
+              <p class="card-text">R$59,99</p>
+              </div>
           </div>
           <div class="card card-custom card-ficcao">
             <input type="checkbox" class="form-check-input chkLivro">
@@ -181,6 +183,7 @@
             <div class="card-body">
               <h5 class="card-title">Harry Potter e o Enigma do Príncipe</h5>
               <p class="card-text cardTitulo">Harry Potter e o enigma do príncipe' dá continuidade à saga do jovem bruxo Harry Potter a partir do ponto em que o livro anterior parou o momento em que fica provado que o poder de Voldemort e dos Comensais da Morte</p>
+              <p class="card-text">R$59,99</p>
             </div>
           </div>
           <div class="card card-custom card-ficcao">
@@ -192,7 +195,8 @@
               <h5 class="card-title">Harry Potter e a Reliquias da Morte</h5>
               <p class="card-text cardTitulo">Harry Potter e as relíquias da morte', de J.K. Rowling, é o sétimo e último livro da série.
                  Voldemorte está cada vez mais forte e Harry Potter precisa encontrar e aniquilar as Horcruxes para enfraquecer o lorde e poder enfrentálo.</p>
-            </div>
+                 <p class="card-text">R$59,99</p>
+              </div>
           </div>
           <div class="card card-custom card-suspense">
             <input type="checkbox" class="form-check-input chkLivro">
@@ -204,6 +208,7 @@
               <p class="card-text cardTitulo">Durante as férias de 1958, em uma pacata cidadezinha chamada Derry, um grupo
                 de sete amigos começa a ver coisas estranhas.
                 Um conta que viu um palhaço, outro que viu uma múmia.</p>
+                <p class="card-text">R$59,99</p>
             </div>
           </div>
           <div class="card card-custom card-suspense">
@@ -216,6 +221,7 @@
               <p class="card-text cardTitulo"> O romance, magistralmente levado ao cinema por Stanley Kubrick, continua
                 apaixonando (e aterrorizando) novas gerações de leitores.
                 A luta assustadora entre dois mundos. Um menino e o desejo assassino de poderosas forças malignas. </p>
+                <p class="card-text">R$59,99</p>
             </div>
           </div>
           <div class="card card-custom card-aventura">
@@ -229,6 +235,7 @@
                 que, um dia, o mago Gandalf bate à sua porta.
                 A partir de então, toda sua vida pacata e campestre soprando anéis de fumaça com seu belo cachimbo começa
                 a mudar.</p>
+                <p class="card-text">R$59,99</p>
             </div>
           </div>
           <div class="card card-custom card-aventura">
@@ -241,6 +248,7 @@
               <p class="card-text cardTitulo">Um dos mais populares clássicos infantis, Peter Pan é uma história que, como
                 Alice no País das Maravilhas, une gerações, contagiando
                 também adultos com sua energia, imaginação e um enredo que permite diversos níveis de interpretação.</p>
+                <p class="card-text">R$59,99</p>
               </div>
             </div>
             <div class="position-fixed customComprar">
@@ -304,10 +312,8 @@
     })
   }
 
-  function removerAcentos(acento) {
-    return acento.normalize("NFD").replace(/[^a-zA-Zs]/g, "");
-  }
-
+  removerAcentos = acento => acento.normalize("NFD").replace(/[^a-zA-Zs]/g, "");
+  
   function mostrar(categoria) {
     elementos = document.querySelectorAll('.card-custom')
     elementosArray = Array.from(elementos)
@@ -332,7 +338,6 @@
       }
     })
   })  
-  
 
   function mostrarItems(elementos,titulo){
     document.addEventListener("click",function(e){
@@ -348,9 +353,10 @@
           cancelButtonText: 'Cancelar',
           confirmButtonText: 'Confirmar compra'
         })
-     }
+     }  
     })
   }
+  
   mostrarItems()  
   
   function pegarSelecionados(){
@@ -361,10 +367,8 @@
           titulosArray.push(elemento.querySelector('.card-title').innerHTML)
        }
     })
-
-
     return titulosArray
-  }
+  }   
 
 </script>
 
