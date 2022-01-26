@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="imgs/pilha-de-livros.png">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <!--Jquery-->
   <!--Font Awesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- JavaScript Bundle with Popper -->
@@ -175,7 +176,7 @@
               <p class="card-text card-preco">59.99</p>
               </div>
           </div>
-          <div class="card card-custom card-ficcao">
+          <div class="card card-custom card-minified card-ficcao">
             <input type="checkbox" class="form-check-input chkLivro">
             <a href="" class="hvr-bob">
               <img src="imgs/hp-enigma-red.jpg" class="card-img-top" alt="...">
@@ -387,7 +388,7 @@
   //   // return precos
   // }
 
-  function pegarPrecos(){
+  function pegarPrecos(total){
     let card = document.querySelectorAll('.card-custom')
     let precosArray = []
 
@@ -395,28 +396,40 @@
       // removerPonto = removerPontoeCifrao()
       if(e.querySelector('.chkLivro').checked ){
         precosArray.push(e.querySelector('.card-preco').innerHTML) 
-        let total = precosArray.reduce(function(acumulador,preco){
-            acumulador = acumulador + preco
+        total = precosArray.reduce(function(acumulador,preco){
+          acumulador = acumulador + preco
         },0)
       }
     })
-    return precosArray
+    // return precosArray
+    return total
   }
   
   function pegarSelecionados(){
     let elementos = document.querySelectorAll('.card-custom')
     let titulosArray = []
+    let precosArray = []
     Array.from(elementos).map((elemento,preco) => {
       if(elemento.querySelector('.chkLivro').checked){
           titulosArray.push(elemento.querySelector('.card-title').innerHTML)
         }
     })
     return titulosArray 
+  }   
 
+  function carrinhoCompras(){
+  let elementos = document.querySelectorAll('.card-custom')
+  let card = []
+  Array.from(elementos).map((elemento,preco) => {
+      if(elemento.querySelector('.chkLivro').checked){
+          card.push(elemento.querySelector('.card-custom').add.classList('card-minified'))
+        }
+    })
+    return card 
   }   
 
 
-/* ideais para segunda. 24/02/22
+/* ideias 
 -  Inserir preço total, que está com problemas.
  - Fazer um carrinho de compras de acordo com oque foi marcado. Card dos livros em forma de thumbnail.
  - Implementar paginação nos livros com o Bootstrap e JavaScript.
