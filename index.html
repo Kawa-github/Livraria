@@ -388,21 +388,24 @@
   //   // return precos
   // }
 
-  function pegarPrecos(total){
+  function pegarPrecos(){
     let card = document.querySelectorAll('.card-custom')
     let precosArray = []
 
     Array.from(card).map(e => {
       // removerPonto = removerPontoeCifrao()
       if(e.querySelector('.chkLivro').checked ){
-        precosArray.push(e.querySelector('.card-preco').innerHTML) 
-        total = precosArray.reduce(function(acumulador,preco){
-          acumulador = acumulador + preco
+        precosArray.push(e.querySelector('.card-preco').innerHTML)
+        var total = precosArray.reduce((acumulador,livro) => {
+          if(e.querySelector('.card-preco')){
+            return acumulador + livro
+          }
         },0)
       }
+      return total 
     })
     // return precosArray
-    return total
+    // return total
   }
   
   function pegarSelecionados(){
