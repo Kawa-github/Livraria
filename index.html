@@ -256,23 +256,23 @@
               <button class="btn btn-primary btn-comprar" style="display: none;">Comprar</button>
             </div>
         </div>
-        <div class="paginacao">
+        <div class="">
           <nav>
-              <ul class="pagination mt-5 d-flex justify-content-center">
+              <ul class="pagination mt-5 d-flex justify-content-center paginacao">
                   <li class="page-item">
-                      <a href="" class="page-link">Anterior</a>
+                      <a href="" class="page-link btn-anterior" onclick="paginar()" >Anterior</a>
                   </li>
                   <li class="page-item">
-                      <a href="" class="page-link">1</a>
+                      <a href="" class="page-link" onclick="paginar()" >1</a>
                   </li>
                   <li class="page-item">
-                      <a href="" class="page-link">2</a>
+                      <a href="" class="page-link" onclick="paginar()" >2</a>
                   </li>
                   <li class="page-item">
-                      <a href="" class="page-link">3</a>
+                      <a href="" class="page-link" onclick="paginar()" >3</a>
                   </li>
                   <li class="page-item">
-                      <a href="#" class="page-link">Próximo</a>
+                      <a href="#" class="page-link btn-proximo" onclick="paginar()">Próximo</a>
                   </li>
               </ul>
           </nav>
@@ -317,12 +317,18 @@
 </footer>
 <script>
 
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    let frmBusca = document.querySelector("[name=frmBusca]")
+let frmBusca = document.querySelector("[name=frmBusca]")
   frmBusca.addEventListener("submit", function (e) {
     e.preventDefault()
     let filtro = document.querySelector("[name=filtro]")
     filtrarLivros(filtro.value)
+    if(filtro.value == ''){
+      Swal.fire({
+        text: "É necessário digitar o nome do livro para busca.",
+        icon: 'warning',
+    })
+  }
+  
   })
 
   function filtrarLivros(texto) {
@@ -390,22 +396,13 @@
 
   function pegarPrecos(){
     let card = document.querySelectorAll('.card-custom')
-    let precosArray = []
+    let precosArray = Array.from(card).map(e => 
+      e.querySelector('.chkLivro').checked &&
+        e.querySelector('.card-preco').innerHTML
+    )
 
-    Array.from(card).map(e => {
-      // removerPonto = removerPontoeCifrao()
-      if(e.querySelector('.chkLivro').checked ){
-        precosArray.push(e.querySelector('.card-preco').innerHTML)
-        var total = precosArray.reduce((acumulador,livro) => {
-          if(e.querySelector('.card-preco')){
-            return acumulador + livro
-          }
-        },0)
-      }
-      return total 
-    })
-    // return precosArray
-    // return total
+    let total = precosArray.reduce((acumulador,livro) => acumulador + Number(livro) ,0)
+    return total
   }
   
   function pegarSelecionados(){
@@ -430,6 +427,16 @@
     })
     return card 
   }   
+
+
+function paginar(){
+  let livros = document.querySelectorAll('.cardLivros')
+  let paginacao = document.querySelector('.paginacao')
+  paginacao.addEventListener("click",function(e){
+    e.preventDefault()
+    alert('ola')
+  })
+}
 
 
 /* ideias 
