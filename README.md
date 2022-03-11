@@ -29,6 +29,7 @@ Projeto de uma livraria utilizando JavaScript e Bootstrap.
   <li> Filtro por categoria :heavy_check_mark: </li>
   <li> Busca por nome do livro :heavy_check_mark:</li>
   <li> Carrinho com o total de compras :heavy_check_mark:</li>
+  <li>Paginação :x:</li>
 </ul>
 <s></s>
 
